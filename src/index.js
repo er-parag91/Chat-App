@@ -17,17 +17,10 @@ const publicDirectoryPath = path.join(__dirname, '../public');
 app.use(express.static(publicDirectoryPath));
 
 const PORT = process.env.PORT || 3000;
-let count = 0;
-io.on('connection', (socket) => {
+
+io.on('connection', () => {
     console.log('new websocket connection');
-
-    socket.emit('countUpdated', count);
-
-    socket.on('increment', () => {
-        count++;
-        // io.emit notifies all the connection unlike socket.emit
-        io.emit('countUpdated', count);
-    })
+    io.emit('newConnection', 'New connection has been joined');
 });
 
 server.listen(PORT, () => {
