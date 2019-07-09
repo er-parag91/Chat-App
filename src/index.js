@@ -24,8 +24,9 @@ io.on('connection', (socket) => {
 
     socket.broadcast.emit('message', 'A new has joined');
 
-    socket.on('sendMessage', (message) => {
-        io.emit('message', message)
+    socket.on('sendMessage', (message, callback) => {
+        io.emit('message', message);
+        callback('Delivered!');
     });
 
     socket.on('sendLocation', (location) => {
