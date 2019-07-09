@@ -18,9 +18,12 @@ app.use(express.static(publicDirectoryPath));
 
 const PORT = process.env.PORT || 3000;
 
-io.on('connection', () => {
+io.on('connection', (socket) => {
     console.log('new websocket connection');
-    io.emit('newConnection', 'New connection has been joined');
+
+    socket.on('sendMessage', (message) => {
+        io.emit('message', message)
+    })
 });
 
 server.listen(PORT, () => {
