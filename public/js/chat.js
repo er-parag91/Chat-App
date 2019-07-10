@@ -10,6 +10,11 @@ const $messages = document.querySelector('#messages');
 // Templates
 const $messageTemplate = document.querySelector('#message-template').innerHTML;
 const $locationMessageTemplate = document.querySelector('#location-message-template').innerHTML;
+
+// options
+const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true });
+
+
 socket.on('message', (message) => {
     console.log(message);
 
@@ -64,4 +69,6 @@ $sendLocationButton.addEventListener('click', () => {
             console.log('Location shared!!');
         });
     })
-})
+});
+
+socket.emit('join', { username, room });
