@@ -88,7 +88,8 @@ button:disabled {
     color: #fff;
     background: #333744;
     width: 225px;
-    overflow-y: scroll
+    overflow-y: scroll;
+text-transform: capitalize;
 }
 
 .chat__main {
@@ -166,4 +167,11 @@ button:disabled {
     list-style-type: none;
     font-weight: 300;
     padding: 12px 24px 0
+}
+
+.listItem{
+    background-color: #00000061;
+    padding: 12px;
+    border-bottom: 4px solid;
+    margin-bottom: 10px
 }
