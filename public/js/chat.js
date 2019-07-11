@@ -9,7 +9,7 @@ const $messages = document.querySelector('#messages');
 
 // Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML;
-constlocationMessageTemplate = document.querySelector('#location-message-template').innerHTML;
+const locationMessageTemplate = document.querySelector('#location-message-template').innerHTML;
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML;
 
 // options
@@ -36,7 +36,7 @@ const autoScroll = () => {
     const containerHeight = $messages.scrollHeight;
 
     // how far have I scrolled
-    const scrollOffset = $messages.scrollTop + visibleHeight; 
+    const scrollOffset = $messages.scrollTop + visibleHeight;
 
     if (containerHeight - newMessageHeight === scrollOffset) {
         $messages.scrollTop = $messages.scrollHeight
@@ -67,7 +67,10 @@ socket.on('locationMessage', (message) => {
     autoScroll()
 })
 
-socket.on('roomData', (({room, users}) => {
+socket.on('roomData', (({
+    room,
+    users
+}) => {
     const html = Mustache.render(sidebarTemplate, {
         room,
         users
