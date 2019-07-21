@@ -136,7 +136,7 @@ button:disabled {
         display: block
     }
 
-}
+} 
 
 .chat__main {
     flex-grow: 1;
