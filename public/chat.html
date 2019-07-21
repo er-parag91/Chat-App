@@ -8,6 +8,7 @@
     <title>Chat App</title>
     <link rel="icon" href="/img/favicon.png" />
     <link rel="stylesheet" href="/css/styles.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -23,9 +24,15 @@
             <div class="compose">
                 <form id="message-form">
                     <input name="message" placeholder="Message" required autocomplete="off">
-                    <button>Send</button>
+                    <button>
+                        <span class="sendText">Send</span>
+                        <span class="sendIcon"><i class="fa fa-paper-plane sendIcon" aria-hidden="true"></i></span>
+                    </button>
                 </form>
-                <button id="send-location">Send Location</button>
+                <button id="send-location">
+                    <span class="sendLocationText">Share Location</span>
+                    <span class="sendLocationIcon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                </button>
             </div>
         </div>
 
